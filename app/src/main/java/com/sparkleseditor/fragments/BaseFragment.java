@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.transition.platform.MaterialSharedAxis;
+import com.google.android.material.transition.MaterialSharedAxis;
 
 
 /* Special Thanks to @yamenher for providing the class */
