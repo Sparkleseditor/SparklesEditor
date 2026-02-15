@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
@@ -30,16 +31,11 @@ public class SettingsFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.buttonSecond.setOnClickListener(
-                v-> {
-                    Fragment frghome = new MainFragment();
-                    Navigator.pushTo(
-                            getParentFragmentManager(),
-                            R.id.nav_host,
-                            this,
-                            frghome
-                    );
-                });
+        binding.toolbar.setNavigationOnClickListener(
+                v -> {
+                    getParentFragmentManager().popBackStack();
+                }
+        );
 
     }
 

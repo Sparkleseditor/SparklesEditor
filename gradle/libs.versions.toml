@@ -1,5 +1,7 @@
 [versions]
 agp = "9.0.1"
+desugar_jdk_libs = "2.1.5"
+editorBom = "0.24.4"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
@@ -10,10 +12,14 @@ navigationFragment = "2.9.7"
 navigationUi = "2.9.7"
 
 [libraries]
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+editor = { module = "io.github.rosemoe:editor" }
+editor-bom = { module = "io.github.rosemoe:editor-bom", version.ref = "editorBom" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+language-textmate = { module = "io.github.rosemoe:language-textmate" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
