@@ -5,10 +5,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.sparkleseditor.databinding.ActivityMainBinding;
+import com.sparkleseditor.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,12 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.nav_host);
-        if (navHostFragment != null) {
-            NavController navController = navHostFragment.getNavController();
-
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.nav_host, MainFragment.class, null)
+                    .commit();
         }
     }
     @Override

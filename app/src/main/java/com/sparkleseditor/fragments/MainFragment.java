@@ -1,4 +1,4 @@
-package com.sparkleseditor;
+package com.sparkleseditor.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,7 +9,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+
+import com.sparkleseditor.R;
 import com.sparkleseditor.databinding.FragmentMainBinding;
+import com.sparkleseditor.navigation.Navigator;
 
 public class MainFragment extends Fragment {
 
@@ -42,6 +45,15 @@ public class MainFragment extends Fragment {
                     if (id == R.id.right_drawer) {
                         binding.drawer.openDrawer(GravityCompat.END);
                         return true;
+                    }
+                    if (id == R.id.action_settings){
+                        Fragment frgSettings = new SettingsFragment();
+                        Navigator.pushTo(
+                                getParentFragmentManager(),
+                                R.id.nav_host,
+                                this,
+                                frgSettings
+                        );
                     }
                     return false;
                 }
