@@ -14,7 +14,7 @@ import com.sparkleseditor.databinding.FragmentSecondBinding;
 import com.sparkleseditor.databinding.FragmentSettingsBinding;
 import com.sparkleseditor.navigation.Navigator;
 
-public class SettingsFragment extends Fragment {
+public class SettingsFragment extends BaseFragment {
 
     private FragmentSettingsBinding binding;
 

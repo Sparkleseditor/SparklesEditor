@@ -14,7 +14,7 @@ import com.sparkleseditor.R;
 import com.sparkleseditor.databinding.FragmentMainBinding;
 import com.sparkleseditor.navigation.Navigator;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
 
     private FragmentMainBinding binding;
 
@@ -51,7 +51,6 @@ public class MainFragment extends Fragment {
                         Navigator.pushTo(
                                 getParentFragmentManager(),
                                 R.id.nav_host,
-                                this,
                                 frgSettings
                         );
                     }

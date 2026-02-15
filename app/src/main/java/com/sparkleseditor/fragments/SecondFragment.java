@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.sparkleseditor.R;
 import com.sparkleseditor.databinding.FragmentSecondBinding;
 
-public class SecondFragment extends Fragment {
+public class SecondFragment extends BaseFragment {
 
     private FragmentSecondBinding binding;
 
