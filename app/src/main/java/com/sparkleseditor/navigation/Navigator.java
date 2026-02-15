@@ -10,8 +10,15 @@ public class Navigator {
         MaterialSharedAxis returnTransition = new MaterialSharedAxis(MaterialSharedAxis.X, false);
         MaterialSharedAxis reenterTransition = new MaterialSharedAxis(MaterialSharedAxis.X, false);
 
+
+        currentFragment.setEnterTransition(enterTransition);
+        currentFragment.setReturnTransition(returnTransition);
         currentFragment.setExitTransition(exitTransition);
         currentFragment.setReenterTransition(reenterTransition);
+        pushFragment.setExitTransition(exitTransition);
+        pushFragment.setReenterTransition(reenterTransition);
+
+
         pushFragment.setEnterTransition(enterTransition);
         pushFragment.setReturnTransition(returnTransition);
 
