@@ -9,7 +9,7 @@ public class Navigator {
         fragmentManager.beginTransaction()
                 .setReorderingAllowed(true)
                 .replace(container, pushFragment)
-                .addToBackStack(pushFragment.getClass().getSimpleName())
+                .addToBackStack(null)
                 .commit();
     }
 }

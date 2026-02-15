@@ -62,11 +62,14 @@ dependencies {
     implementation(platform(libs.editor.bom))
     implementation(libs.editor)
     implementation(libs.language.textmate)
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
+    implementation(libs.transition)
+    implementation(libs.fragment)
+    implementation(libs.activity)
 
 
 
     //tests
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
