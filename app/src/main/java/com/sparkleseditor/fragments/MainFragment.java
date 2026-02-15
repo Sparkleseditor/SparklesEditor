@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.sparkleseditor.R;
 import com.sparkleseditor.databinding.FragmentMainBinding;
+import com.sparkleseditor.navigation.Navigator;
 
 public class MainFragment extends Fragment {
 
@@ -44,6 +45,15 @@ public class MainFragment extends Fragment {
                     if (id == R.id.right_drawer) {
                         binding.drawer.openDrawer(GravityCompat.END);
                         return true;
+                    }
+                    if (id == R.id.action_settings){
+                        Fragment frgSettings = new SettingsFragment();
+                        Navigator.pushTo(
+                                getParentFragmentManager(),
+                                R.id.nav_host,
+                                this,
+                                frgSettings
+                        );
                     }
                     return false;
                 }
