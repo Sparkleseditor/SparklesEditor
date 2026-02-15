@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.sparkleseditor.MainActivity">
+    <item
+        android:id="@+id/undo"
+        android:icon="@drawable/undo_24"
+        android:orderInCategory="100"
+        android:title="undo"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/redo"
+        android:icon="@drawable/redo_24"
+        android:orderInCategory="101"
+        android:title="Redo"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/toolbar"
+        android:icon="@drawable/ic_unfold_more_rounded_24"
+        android:orderInCategory="103"
+        android:title="toolbar"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/right_drawer"
+        android:icon="@drawable/rounded_keyboard_option_key_24"
+        android:orderInCategory="102"
+        android:title="right"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="101"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+</menu>
