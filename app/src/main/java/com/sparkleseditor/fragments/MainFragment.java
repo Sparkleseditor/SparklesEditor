@@ -1,4 +1,4 @@
-package com.sparkleseditor;
+package com.sparkleseditor.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+
+import com.sparkleseditor.R;
 import com.sparkleseditor.databinding.FragmentMainBinding;
 
 public class MainFragment extends Fragment {
