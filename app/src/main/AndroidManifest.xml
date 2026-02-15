@@ -9,8 +9,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
+        android:enableOnBackInvokedCallback="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SparklesEditor">
+        android:theme="@style/Theme.SparklesEditor"
+        tools:targetApi="36">
         <activity
             android:name=".MainActivity"
             android:exported="true"
