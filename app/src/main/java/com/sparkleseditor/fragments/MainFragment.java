@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.sparkleseditor.R;
+import com.sparkleseditor.components.ExpandableLayout;
 import com.sparkleseditor.databinding.FragmentMainBinding;
 import com.sparkleseditor.navigation.Navigator;
 
@@ -32,7 +33,14 @@ public class MainFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setupToolbar();
+        setupToolbox();
 
+    }
+
+    private void setupToolbox() {
+        binding.options.setExpansion(false);
+        binding.options.setDuration(200);
+        binding.options.setOrientatin(ExpandableLayout.VERTICAL);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -53,6 +61,14 @@ public class MainFragment extends BaseFragment {
                                 R.id.nav_host,
                                 frgSettings
                         );
+                    }
+                    if (id == R.id.toolbar){
+                        if (!binding.options.isExpanded()) {
+                            binding.options.expand();
+                        } else {
+                            binding.options.collapse();
+                        }
+                        return true;
                     }
                     return false;
                 }
