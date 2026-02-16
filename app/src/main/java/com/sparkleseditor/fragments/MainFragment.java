@@ -48,8 +48,17 @@ public class MainFragment extends BaseFragment {
         binding.toolbar.setOnMenuItemClickListener(
                 item->{
                     int id = item.getItemId();
-                    if (id == R.id.undo) return true;
-                    if (id == R.id.redo) return true;
+                    if (id == R.id.undo){
+                        if (binding.editor.canUndo()){
+                            binding.editor.undo();
+                        }
+                        return true ;
+                    }
+                    if (id == R.id.redo) {
+                        if (binding.editor.canRedo()) {
+                            binding.editor.redo();
+                        }
+                    }
                     if (id == R.id.right_drawer) {
                         binding.drawer.openDrawer(GravityCompat.END);
                         return true;
