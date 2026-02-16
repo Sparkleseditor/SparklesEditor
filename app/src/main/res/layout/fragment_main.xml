@@ -92,6 +92,12 @@
                 android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <io.github.rosemoe.sora.widget.CodeEditor
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editor"/>
+
         </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
