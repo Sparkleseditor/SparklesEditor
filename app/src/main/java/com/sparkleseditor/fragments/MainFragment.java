@@ -2,14 +2,19 @@ package com.sparkleseditor.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sparkleseditor.R;
 import com.sparkleseditor.components.ExpandableLayout;
 import com.sparkleseditor.databinding.FragmentMainBinding;
@@ -54,6 +59,8 @@ public class MainFragment extends BaseFragment {
 
 
     }
+
+
 
     private void setupInputView() {
 
