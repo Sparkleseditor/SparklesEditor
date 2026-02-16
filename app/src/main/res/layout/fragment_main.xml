@@ -96,11 +96,17 @@
                 android:id="@+id/editor"
                 android:layout_weight="1"/>
 
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scroll"
+                android:scrollbars="none">
             <io.github.rosemoe.sora.widget.SymbolInputView
                 android:id="@+id/inputer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?colorSurface"/>
+                android:background="@android:color/transparent"/>
+             </HorizontalScrollView>
 
 
         </LinearLayout>
@@ -114,12 +120,12 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_anchor="@id/inputer"
+            app:layout_anchor="@id/scroll"
             app:layout_anchorGravity="top|end"
-            android:layout_marginBottom="45dp"
+            android:layout_marginBottom="64dp"
             android:layout_marginEnd="16dp"
             android:contentDescription="Play"
-            app:srcCompat="@android:drawable/ic_dialog_email" />
+            app:srcCompat="@drawable/ic_play_arrow_rounded_filled_24dp" />
 
 
 
