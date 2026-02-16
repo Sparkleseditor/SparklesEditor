@@ -98,7 +98,14 @@
                 android:layout_height="match_parent"
                 android:id="@+id/editor"/>
 
+            <io.github.rosemoe.sora.widget.SymbolInputView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inputer"/>
+
+
         </LinearLayout>
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
