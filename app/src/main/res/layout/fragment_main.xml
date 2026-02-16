@@ -4,131 +4,116 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+    android:id="@+id/drawer"
     android:layout_width="match_parent"
-    android:id="@+id/drawer">
-
+    android:layout_height="match_parent">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_height="match_parent"
-    android:layout_width="match_parent">
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </com.google.android.material.appbar.AppBarLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <com.sparkleseditor.components.ExpandableLayout
-            android:id="@+id/options"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:fitsSystemWindows="true"
-            android:background="?colorSurface">
-            <LinearLayout
-                android:id="@+id/linear"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:orientation="horizontal"
-                android:gravity="center"
+                app:title="@string/app_name"
+                app:menu="@menu/menu_main" />
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.sparkleseditor.components.ExpandableLayout
+                android:id="@+id/options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="?colorSurface">
+
                 <LinearLayout
+                    android:id="@+id/linear"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:layout_height="?attr/actionBarSize"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:weightSum="4"
+                    android:background="?colorSurface">
+
                     <Button
                         android:id="@+id/file"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         style="?attr/materialIconButtonStyle"
-                        app:icon="@drawable/ic_draft_rounded_filled_24dp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:icon="@drawable/ic_draft_rounded_filled_24dp"
+                        app:iconGravity="textStart" />
+
                     <Button
                         android:id="@+id/term"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         style="?attr/materialIconButtonStyle"
-                        app:icon="@drawable/ic_terminal_rounded_filled_24dp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:icon="@drawable/ic_terminal_rounded_filled_24dp"
+                        app:iconGravity="textStart"  />
+
                     <Button
                         android:id="@+id/search"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="Clear"
                         style="?attr/materialIconButtonStyle"
-                        app:icon="@drawable/ic_search_rounded_filled_24dp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:icon="@drawable/ic_search_rounded_filled_24dp"
+                        app:iconGravity="textStart" />
+
                     <Button
                         android:id="@+id/settings"
                         style="?attr/materialIconButtonStyle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:contentDescription="Settings"
-                        app:icon="@drawable/ic_settings_rounded_filled_24dp" />
+                        android:layout_weight="1"
+                        app:icon="@drawable/ic_settings_rounded_filled_24dp"
+                        app:iconGravity="textStart" />
+
                 </LinearLayout>
-            </LinearLayout>
-        </com.sparkleseditor.components.ExpandableLayout>
+            </com.sparkleseditor.components.ExpandableLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-
-
-
-    </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_anchor="@+id/appBarLayout"
-            app:layout_anchorGravity="center"
-            app:menu="@menu/menu_main"
-            app:title="@string/app_name" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="Play"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start">
-
-    </com.google.android.material.navigation.NavigationView>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:id="@+id/right_drawer_menu">
+        android:layout_gravity="start" />
 
-    </com.google.android.material.navigation.NavigationView>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/right_drawer_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end" />
+
 </androidx.drawerlayout.widget.DrawerLayout>
