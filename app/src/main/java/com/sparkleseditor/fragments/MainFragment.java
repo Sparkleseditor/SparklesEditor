@@ -15,9 +15,25 @@ import com.sparkleseditor.components.ExpandableLayout;
 import com.sparkleseditor.databinding.FragmentMainBinding;
 import com.sparkleseditor.navigation.Navigator;
 
+import io.github.rosemoe.sora.widget.SymbolInputView;
+
 public class MainFragment extends BaseFragment {
 
     private FragmentMainBinding binding;
+
+    public static final String[] SYMBOLS = {
+            "TAB", "{", "}", "(", ")",
+            ",", ".", ";", "\"", "?",
+            "+", "-", "*", "/", "<",
+            ">", "[", "]", ":"
+    };
+
+    public static final String[] SYMBOL_INSERT_TEXT = {
+            "\t", "{}", "}", "(", ")",
+            ",", ".", ";", "\"", "?",
+            "+", "-", "*", "/", "<",
+            ">", "[", "]", ":"
+    };
 
     @Override
     public View onCreateView(
@@ -34,6 +50,16 @@ public class MainFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         setupToolbar();
         setupToolbox();
+        setupInputView();
+
+
+    }
+
+    private void setupInputView() {
+
+        SymbolInputView inputView = binding.inputer;
+        inputView.bindEditor(binding.editor);
+        inputView.addSymbols(SYMBOLS, SYMBOL_INSERT_TEXT);
 
     }
 

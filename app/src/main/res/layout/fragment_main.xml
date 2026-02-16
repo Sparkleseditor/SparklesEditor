@@ -23,10 +23,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:title="@string/app_name"
                 app:menu="@menu/menu_main" />
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-/>
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
@@ -95,17 +92,16 @@
 
             <io.github.rosemoe.sora.widget.CodeEditor
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/editor"/>
+                android:layout_height="0dp"
+                android:id="@+id/editor"
+                android:layout_weight="1"/>
 
             <io.github.rosemoe.sora.widget.SymbolInputView
+                android:id="@+id/inputer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/inputer"/>
-
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
-
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -114,7 +110,10 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             android:contentDescription="Play"
+            android:fitsSystemWindows="true"
             app:srcCompat="@android:drawable/ic_dialog_email" />
+
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
