@@ -100,12 +100,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/scroll"
-                android:scrollbars="none">
+                android:scrollbars="none"
+                android:background="?colorSurface">
             <io.github.rosemoe.sora.widget.SymbolInputView
                 android:id="@+id/inputer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"/>
+                android:layout_height="wrap_content" />
              </HorizontalScrollView>
 
 
