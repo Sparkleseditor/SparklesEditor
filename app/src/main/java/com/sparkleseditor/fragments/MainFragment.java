@@ -1,6 +1,9 @@
 package com.sparkleseditor.fragments;
 
+import static android.R.color.transparent;
+
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -27,14 +30,14 @@ public class MainFragment extends BaseFragment {
     private FragmentMainBinding binding;
 
     public static final String[] SYMBOLS = {
-            "TAB", "{", "}", "(", ")",
+            "TAB","↵", "{", "}", "(", ")",
             ",", ".", ";", "\"", "?",
             "+", "-", "*", "/", "<",
             ">", "[", "]", ":"
     };
 
     public static final String[] SYMBOL_INSERT_TEXT = {
-            "\t", "{}", "}", "(", ")",
+            "\t","\n", "{}", "}", "(", ")",
             ",", ".", ";", "\"", "?",
             "+", "-", "*", "/", "<",
             ">", "[", "]", ":"
@@ -56,6 +59,7 @@ public class MainFragment extends BaseFragment {
         setupToolbar();
         setupToolbox();
         setupInputView();
+        binding.fab.setTranslationY(-12);
 
 
     }
@@ -67,6 +71,7 @@ public class MainFragment extends BaseFragment {
         SymbolInputView inputView = binding.inputer;
         inputView.bindEditor(binding.editor);
         inputView.addSymbols(SYMBOLS, SYMBOL_INSERT_TEXT);
+        inputView.setBackgroundColor(Color.TRANSPARENT);
 
     }
 
