@@ -52,11 +52,16 @@ public class MainFragment extends BaseFragment {
         setupToolbar();
         setupToolbox();
         setupInputView();
+        setupTabLayoutTemp();
         binding.fab.setTranslationY(-12);
 
 
     }
 
+    private void setupTabLayoutTemp() {
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("My Tab Title"));
+
+    }
 
 
     private void setupInputView() {
