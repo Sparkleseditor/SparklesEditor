@@ -62,6 +62,7 @@ dependencies {
     implementation(platform(libs.editor.bom))
     implementation(libs.editor)
     implementation(libs.language.textmate)
+    implementation(libs.language.java)
     implementation(libs.transition)
     implementation(libs.fragment)
     implementation(libs.activity)
