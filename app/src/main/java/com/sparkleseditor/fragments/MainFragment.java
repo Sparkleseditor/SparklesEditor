@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.sparkleseditor.R;
@@ -53,9 +56,68 @@ public class MainFragment extends BaseFragment {
         setupToolbox();
         setupInputView();
         setupTabLayoutTemp();
+        slideXDrawer();
         binding.fab.setTranslationY(-12);
 
 
+    }
+
+    private void slideXDrawer() {
+        /*int statusBarHeight =
+                getResources()
+                        .getDimensionPixelSize(
+                                getResources().getIdentifier("status_bar_height", "dimen", "android"));*/
+        int navigationBarHeight =
+                getResources()
+                        .getDimensionPixelSize(
+                                getResources().getIdentifier("navigation_bar_height", "dimen", "android"));
+        ViewGroup.LayoutParams layoutParams = binding.leftDrawerMenu.getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            binding.leftDrawerMenu.setLayoutParams(marginLayoutParams);
+        }
+
+        binding.drawer.setScrimColor(Color.TRANSPARENT);
+        binding.drawer.setDrawerElevation(0f);
+        binding.drawer.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+
+            float slideX;
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+                int gravity = ((DrawerLayout.LayoutParams) drawerView.getLayoutParams()).gravity;
+                if (gravity == GravityCompat.START) {
+                    binding.coordinator.setTranslationX(slideOffset * drawerView.getWidth());
+                    binding.drawer.bringChildToFront(drawerView);
+                    binding.drawer.requestLayout();
+                } else if (gravity == GravityCompat.END) {
+                    binding.coordinator.setTranslationX(-slideOffset * drawerView.getWidth());
+                    binding.drawer.bringChildToFront(drawerView);
+                    binding.drawer.requestLayout();
+                }
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+                binding.coordinator.setTranslationX(0f);
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                if (newState == DrawerLayout.STATE_IDLE) {
+                    if (!binding.drawer.isDrawerOpen(GravityCompat.START) &&
+                            !binding.drawer.isDrawerOpen(GravityCompat.END)) {
+                        binding.coordinator.setTranslationX(0f);
+                    }
+                }
+
+            }
+
+
+        });
+
+        binding.toolbar.setNavigationOnClickListener(v ->{
+            binding.drawer.openDrawer(GravityCompat.START);
+        });
     }
 
     private void setupTabLayoutTemp() {
@@ -77,6 +139,14 @@ public class MainFragment extends BaseFragment {
         binding.options.setExpansion(false);
         binding.options.setDuration(200);
         binding.options.setOrientatin(ExpandableLayout.VERTICAL);
+        binding.settings.setOnClickListener(v->{
+            Fragment frgSettings = new SettingsFragment();
+            Navigator.pushTo(
+                    getParentFragmentManager(),
+                    R.id.nav_host,
+                    frgSettings
+            );
+        });
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -99,14 +169,7 @@ public class MainFragment extends BaseFragment {
                         binding.drawer.openDrawer(GravityCompat.END);
                         return true;
                     }
-                    if (id == R.id.action_settings){
-                        Fragment frgSettings = new SettingsFragment();
-                        Navigator.pushTo(
-                                getParentFragmentManager(),
-                                R.id.nav_host,
-                                frgSettings
-                        );
-                    }
+
                     if (id == R.id.toolbar){
                         if (!binding.options.isExpanded()) {
                             binding.options.expand();
