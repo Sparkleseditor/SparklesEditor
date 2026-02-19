@@ -20,7 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep public class * extends androidx.fragment.app.Fragment
--keep class com.sparkleseditor.fragments.** { *; }
--keep class com.zyron.filetree.** { *; }
--dontwarn com.zyron.filetree.**
+#-keep public class * extends androidx.fragment.app.Fragment
+#-keep class com.sparkleseditor.fragments.** { *; }
+#-keep class com.zyron.filetree.** { *; }
+#-dontwarn com.zyron.filetree.**
