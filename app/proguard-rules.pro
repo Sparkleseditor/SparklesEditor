@@ -20,7 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# Keep all Fragment subclasses
 -keep public class * extends androidx.fragment.app.Fragment
-# Or more specifically:
 -keep class com.sparkleseditor.fragments.** { *; }
+-keep class com.zyron.filetree.** { *; }
+-dontwarn com.zyron.filetree.**
