@@ -133,14 +133,125 @@
             app:srcCompat="@drawable/ic_play_arrow_rounded_filled_24dp" />
 
 
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:id="@+id/left_drawer_menu"/>
+        android:id="@+id/left_drawer_menu">
+
+        <LinearLayout
+            android:id="@+id/content_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true">
+            <!-- the old sidesheet layout goes here -->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="end"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:text="@string/app_name"
+                    android:textSize="18sp"
+                    android:gravity="left|center_vertical"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:paddingLeft="16dp" />
+                <Button
+                    android:id="@+id/hide"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:icon="@drawable/ic_menu_open_rounded_filled_24dp"
+                    app:iconTint="?attr/colorOnSurfaceVariant" />
+            </LinearLayout>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                app:menu="@menu/sheet_options_menu"
+                android:background="@android:color/transparent"
+                android:id="@+id/btm_options"
+                app:labelVisibilityMode="unlabeled" />
+            <FrameLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/container">
+
+                <LinearLayout
+                    android:id="@+id/file_tree"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                <HorizontalScrollView
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:fillViewport="false">
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:id="@+id/content_file_tree"
+                        android:fillViewport="false">
+                        <!-- Where the file tree goes -->
+                        <com.zyron.filetree.widget.FileTreeView
+                            android:id="@+id/file_tree_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+                    </androidx.core.widget.NestedScrollView>
+                </HorizontalScrollView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:id="@+id/require_folder"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No Workspace currently Set"/>
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Open Folder"
+                            android:id="@+id/open_folder"
+                            app:icon="@drawable/ic_folder_rounded_filled_24dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:id="@+id/content_git">
+                    <!-- Where the Git goes -->
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="The Git Client is Coming Soon!" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:id="@+id/content_toolbox">
+
+                </LinearLayout>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+
+    </com.google.android.material.navigation.NavigationView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/right_drawer_menu"

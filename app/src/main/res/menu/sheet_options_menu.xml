@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/option_file_tree"
+        android:icon="@drawable/ic_folder_rounded_filled_24dp"
+        android:title="Files" />
+
+    <item
+        android:id="@+id/option_git"
+        android:icon="@drawable/git_24px"
+        android:title="Git" />
+
+
+</menu>

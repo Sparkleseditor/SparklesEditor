@@ -66,6 +66,7 @@ dependencies {
     implementation(libs.transition)
     implementation(libs.fragment)
     implementation(libs.activity)
+    implementation(project(":filetree"))
 
 
 
