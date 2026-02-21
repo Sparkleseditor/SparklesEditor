@@ -6,12 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-
-import com.sparkleseditor.databinding.FragmentTemplateBinding;
+import com.sparkleseditor.databinding.FragmentTerminalBinding;
 
 public class TerminalFragment extends BaseFragment {
 
-    private FragmentTemplateBinding binding;
+    private FragmentTerminalBinding binding;
 
     @Override
     public View onCreateView(
@@ -19,7 +18,7 @@ public class TerminalFragment extends BaseFragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentTemplateBinding.inflate(inflater, container, false);
+        binding = FragmentTerminalBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
