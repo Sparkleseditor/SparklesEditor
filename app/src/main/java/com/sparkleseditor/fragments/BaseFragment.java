@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.transition.MaterialSharedAxis;
 
+import java.io.File;
+
 
 /* Special Thanks to @yamenher for providing the class */
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(Bundle b) {
         super.onCreate(null);
@@ -18,4 +20,6 @@ public class BaseFragment extends Fragment {
         setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
         setReenterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
     }
+
+
 }

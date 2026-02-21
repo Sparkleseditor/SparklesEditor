@@ -35,11 +35,8 @@ android {
         release{
                 isMinifyEnabled = false
                 isShrinkResources = false
-                proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            signingConfig = signingConfigs.getByName("release")
+                signingConfig = signingConfigs.getByName("release")
+                proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro") //returning for now
         }
     }
     compileOptions {
@@ -66,6 +63,7 @@ dependencies {
     implementation(libs.transition)
     implementation(libs.fragment)
     implementation(libs.activity)
+    implementation(project(":filetree"))
 
 
 

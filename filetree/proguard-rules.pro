@@ -19,9 +19,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
--keep public class * extends com.sparkleseditor.fragments.BaseFragment
--keep class com.sparkleseditor.fragments.** { *; }
--keep class com.zyron.filetree.** { *; }
--dontwarn com.zyron.filetree.**
--keep class com.sparkleseditor.MainActivity { *; }

@@ -1,4 +1,5 @@
 [versions]
+kotlin = "1.9.0"
 activity = "1.12.4"
 agp = "9.0.1"
 desugar_jdk_libs = "2.1.5"
@@ -15,6 +16,7 @@ navigationUi = "2.9.7"
 transition = "1.7.0"
 
 [libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 activity = { module = "androidx.activity:activity", version.ref = "activity" }
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 editor = { module = "io.github.rosemoe:editor" }
@@ -34,4 +36,5 @@ transition = { module = "androidx.transition:transition", version.ref = "transit
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 

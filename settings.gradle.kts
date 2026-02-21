@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sparkles Editor"
 include(":app")
+include(":filetree")

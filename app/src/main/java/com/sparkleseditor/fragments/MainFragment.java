@@ -1,29 +1,84 @@
 package com.sparkleseditor.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.DocumentsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.zyron.filetree.events.FileTreeEventListener;
+
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.transition.TransitionManager;
 
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.transition.MaterialSharedAxis;
 import com.sparkleseditor.R;
 import com.sparkleseditor.components.ExpandableLayout;
 import com.sparkleseditor.databinding.FragmentMainBinding;
 import com.sparkleseditor.navigation.Navigator;
+import com.zyron.filetree.events.FileTreeEventListener;
+import com.zyron.filetree.provider.FileTreeIconProvider;
+
+import java.io.File;
 
 import io.github.rosemoe.sora.widget.SymbolInputView;
 
-public class MainFragment extends BaseFragment {
+public class MainFragment extends BaseFragment implements FileTreeEventListener {
+
+
+    private final ActivityResultLauncher<Uri> folderPickerLauncher =
+            registerForActivityResult(
+                    new ActivityResultContracts.OpenDocumentTree(),
+                    treeUri -> {
+                        if (treeUri == null) return;
+
+                        int flags = Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
+
+                        requireContext().getContentResolver()
+                                .takePersistableUriPermission(treeUri, flags);
+
+                        path = getRealPathFromUri(treeUri);
+                        setupFileTree();
+                        Toast.makeText(requireContext(), "Folder selected!", Toast.LENGTH_LONG).show();
+
+                    }
+            );
+    private String getRealPathFromUri(Uri treeUri) {
+        String docId = DocumentsContract.getTreeDocumentId(treeUri);
+        String[] split = docId.split(":");
+        String type = split[0];
+        String relativePath = split.length > 1 ? split[1] : "";
+        if ("primary".equalsIgnoreCase(type)) {
+            return Environment.getExternalStorageDirectory() + "/" + relativePath;
+        } else {
+            String externalStorage = System.getenv("SECONDARY_STORAGE");
+            if (externalStorage == null) {
+                externalStorage = System.getenv("EXTERNAL_STORAGE");
+            }
+            return externalStorage + "/" + relativePath;
+        }
+    }
 
     private FragmentMainBinding binding;
+    private FileTreeIconProvider fileIconProvider;
+    private String path ="";
+
+    private static final int REQUEST_CODE_OPEN_DIRECTORY = 1001;
 
     public static final String[] SYMBOLS = {
             "TAB","↵", "{", "}", "(", ")",
@@ -39,6 +94,11 @@ public class MainFragment extends BaseFragment {
             ">", "[", "]", ":"
     };
 
+    public interface FileTreeEventListener {
+        void onFileClick(File file);
+        void onFolderClick(File folder);
+    }
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -52,14 +112,50 @@ public class MainFragment extends BaseFragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        //AppStruct
         setupToolbar();
         setupToolbox();
         setupInputView();
         setupTabLayoutTemp();
         slideXDrawer();
+        drawerLeftContent();
         binding.fab.setTranslationY(-12);
+    }
 
+    private void drawerLeftContent() {
 
+        binding.fileTree.setVisibility(View.VISIBLE);
+        binding.contentGit.setVisibility(View.GONE);
+        binding.btmOptions.setOnNavigationItemSelectedListener(
+                item -> {
+                    var sharedAxis = new MaterialSharedAxis(MaterialSharedAxis.X, true);
+                    TransitionManager.beginDelayedTransition(binding.container, sharedAxis);
+                    if (item.getItemId() == R.id.option_file_tree) {
+                        binding.contentGit.setVisibility(View.GONE);
+                        binding.fileTree.setVisibility(View.VISIBLE);
+                    } else if (item.getItemId() == R.id.option_git) {
+                        binding.contentGit.setVisibility(View.VISIBLE);
+                        binding.fileTree.setVisibility(View.GONE);
+                    }
+                    return true;
+                }
+        );
+        setupFileTree();
+    }
+
+    private void setupFileTree() {
+        if (path != null && !path.isEmpty()) {
+            binding.contentFileTree.setVisibility(View.VISIBLE);
+            binding.requireFolder.setVisibility(View.GONE);
+            binding.fileTreeView.initializeFileTree(path, this , fileIconProvider);
+        }else{
+            binding.contentFileTree.setVisibility(View.GONE);
+            binding.requireFolder.setVisibility(View.VISIBLE);
+            binding.openFolder.setOnClickListener(v -> {
+                folderPickerLauncher.launch(null);
+            });
+        }
     }
 
     private void slideXDrawer() {
@@ -188,6 +284,27 @@ public class MainFragment extends BaseFragment {
         super.onDestroyView();
         binding = null;
     }
+
+    public void onFileClick(File file) {
+    }
+
+
+    public void onFolderClick(File folder) {}
+
+
+    public boolean onFileLongClick(File file) {
+        return true;
+    }
+
+
+    public boolean onFolderLongClick(File folder) {
+
+        return true;
+    }
+
+
+    public void onFileTreeViewUpdated(int startPosition, int itemCount) {}
+
 
 
 
