@@ -63,9 +63,13 @@ dependencies {
     implementation(libs.transition)
     implementation(libs.fragment)
     implementation(libs.activity)
+    implementation(libs.terminal.view)
+    implementation(libs.terminal.emulator)
+    implementation(libs.utilcodex)
+
+
+    // with Paths
     implementation(project(":filetree"))
-
-
 
     //tests
     coreLibraryDesugaring(libs.desugar.jdk.libs)

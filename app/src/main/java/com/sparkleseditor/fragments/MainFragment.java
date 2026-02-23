@@ -159,20 +159,6 @@ public class MainFragment extends BaseFragment implements FileTreeEventListener 
     }
 
     private void slideXDrawer() {
-        /*int statusBarHeight =
-                getResources()
-                        .getDimensionPixelSize(
-                                getResources().getIdentifier("status_bar_height", "dimen", "android"));*/
-        int navigationBarHeight =
-                getResources()
-                        .getDimensionPixelSize(
-                                getResources().getIdentifier("navigation_bar_height", "dimen", "android"));
-        ViewGroup.LayoutParams layoutParams = binding.leftDrawerMenu.getLayoutParams();
-        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            binding.leftDrawerMenu.setLayoutParams(marginLayoutParams);
-        }
-
         binding.drawer.setScrimColor(Color.TRANSPARENT);
         binding.drawer.setDrawerElevation(0f);
         binding.drawer.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
@@ -243,6 +229,16 @@ public class MainFragment extends BaseFragment implements FileTreeEventListener 
                     frgSettings
             );
         });
+        binding.term.setOnClickListener(
+                v->{
+                    Fragment frgTerm = new TerminalFragment();
+                    Navigator.pushTo(
+                            getParentFragmentManager(),
+                            R.id.nav_host,
+                            frgTerm
+                    );
+                }
+        );
     }
 
     @SuppressLint("NonConstantResourceId")
