@@ -6,8 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.sparkleseditor.R;
 import com.sparkleseditor.databinding.FragmentSettingsBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SettingsFragment extends BaseFragment {
 
@@ -31,6 +36,19 @@ public class SettingsFragment extends BaseFragment {
                     getParentFragmentManager().popBackStack();
                 }
         );
+        setupUi();
+
+
+    }
+
+    private void setupUi() {
+        binding.i1.updateAppearance(0,5);
+        binding.i2.updateAppearance(1,5);
+        binding.i3.updateAppearance(2,5);
+        binding.i4.updateAppearance(3,5);
+        binding.i5.updateAppearance(4,5);
+
+
 
     }
 
