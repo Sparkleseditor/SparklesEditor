@@ -41,110 +41,161 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:paddingVertical="20dp"
-            android:paddingHorizontal="16dp"
+            android:paddingHorizontal="8dp"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_height="wrap_content"
+
+            <com.google.android.material.listitem.ListItemLayout
                 android:layout_width="match_parent"
-                android:background="@drawable/shape_top"
-                android:paddingVertical="16dp"
-                android:paddingHorizontal="24dp"
-                android:id="@+id/main">
-
-                <ImageView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/ic_format_paint_rounded_filled_24dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="32px"
-                    app:tint="?colorPrimary"
-                    android:id="@+id/preference_icon" />
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_toRightOf="@id/preference_icon"
-                    android:textSize="18sp"
-                    android:textColor="?colorOnSurface"
-                    android:id="@+id/preference_name"
-                    android:text="@string/set_main"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_below="@id/preference_name"
-                    android:layout_toRightOf="@id/preference_icon"
-                    android:textSize="16sp"
-                    android:textColor="?colorOnSurfaceVariant"
-                    android:id="@+id/preference_description"
-                    android:text="@string/set_main_desc" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:layout_height="wrap_content"
+                android:id="@+id/i1">
+
+                <com.google.android.material.listitem.ListItemCardView
+                    android:id="@+id/cat_list_item_card_view"
+                    style="?attr/listItemCardViewSegmentedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <RelativeLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="16dp"
+                        android:id="@+id/main">
+
+                        <ImageView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_format_paint_rounded_filled_24dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="16dp"
+                            app:tint="?colorPrimary"
+                            android:id="@+id/preference_icon" />
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_toEndOf="@id/preference_icon"
+                            android:textSize="18sp"
+                            android:textColor="?colorOnSurface"
+                            android:id="@+id/preference_name"
+                            android:text="@string/set_main"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@id/preference_name"
+                            android:layout_toEndOf="@id/preference_icon"
+                            android:textSize="16sp"
+                            android:textColor="?colorOnSurfaceVariant"
+                            android:id="@+id/preference_description"
+                            android:text="@string/set_main_desc" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.listitem.ListItemCardView>
+            </com.google.android.material.listitem.ListItemLayout>
+
+            <com.google.android.material.listitem.ListItemLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/shape_middle"
-                android:paddingVertical="16dp"
-                android:paddingHorizontal="24dp"
-                android:id="@+id/editor">
+                android:id="@+id/i2">
 
-                <ImageView
+            <com.google.android.material.listitem.ListItemCardView
+                style="?attr/listItemCardViewSegmentedStyle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true">
+
+                <RelativeLayout
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/ic_edit_square_rounded_filled_24dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="32px"
-                    app:tint="?colorPrimary"
-                    android:id="@+id/preference_icon2" />
+                    android:layout_width="match_parent"
 
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_toRightOf="@id/preference_icon2"
-                    android:textSize="18sp"
-                    android:textColor="?colorOnSurface"
-                    android:id="@+id/preference_name2"
-                    android:text="@string/set_editor"
-                    android:textStyle="bold" />
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="16dp"
+                    android:id="@+id/editor">
 
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_below="@id/preference_name2"
-                    android:layout_toRightOf="@id/preference_icon2"
-                    android:textSize="16sp"
-                    android:textColor="?colorOnSurfaceVariant"
-                    android:id="@+id/preference_description2"
-                    android:text="@string/set_editor_desc" />
+                    <ImageView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_edit_square_rounded_filled_24dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16dp"
+                        app:tint="?colorPrimary"
+                        android:id="@+id/preference_icon2" />
 
-            </RelativeLayout>
-            <!--Will be hidden until fully integrating the terminal-->
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_toEndOf="@id/preference_icon2"
+                        android:textSize="18sp"
+                        android:textColor="?colorOnSurface"
+                        android:id="@+id/preference_name2"
+                        android:text="@string/set_editor"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@id/preference_name2"
+                        android:layout_toRightOf="@id/preference_icon2"
+                        android:textSize="16sp"
+                        android:textColor="?colorOnSurfaceVariant"
+                        android:id="@+id/preference_description2"
+                        android:text="@string/set_editor_desc" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.listitem.ListItemCardView>
+            </com.google.android.material.listitem.ListItemLayout>
+
+
+
+            <com.google.android.material.listitem.ListItemLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:id="@+id/i3">
+
+            <com.google.android.material.listitem.ListItemCardView
+                style="?attr/listItemCardViewSegmentedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true">
             <RelativeLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/shape_middle"
-                android:paddingVertical="16dp"
-                android:paddingHorizontal="24dp"
+
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
                 android:id="@+id/terminal">
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/ic_terminal_rounded_filled_24dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="32px"
+                    android:layout_marginEnd="16dp"
                     app:tint="?colorPrimary"
                     android:id="@+id/preference_icon3" />
 
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_toRightOf="@id/preference_icon3"
+                    android:layout_toEndOf="@id/preference_icon3"
                     android:textSize="18sp"
                     android:textColor="?colorOnSurface"
                     android:id="@+id/preference_name3"
@@ -155,21 +206,35 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_below="@id/preference_name3"
-                    android:layout_toRightOf="@id/preference_icon3"
+                    android:layout_toEndOf="@id/preference_icon3"
                     android:textSize="16sp"
                     android:textColor="?colorOnSurfaceVariant"
                     android:id="@+id/preference_description3"
                     android:text="@string/set_terminal_desc" />
 
             </RelativeLayout>
+            </com.google.android.material.listitem.ListItemCardView>
+                </com.google.android.material.listitem.ListItemLayout>
 
+
+            <com.google.android.material.listitem.ListItemLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:id="@+id/i4">
+
+            <com.google.android.material.listitem.ListItemCardView
+                style="?attr/listItemCardViewSegmentedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true">
             <RelativeLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/shape_middle"
-                android:paddingVertical="16dp"
-                android:paddingHorizontal="24dp"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
                 android:id="@+id/lib">
 
                 <ImageView
@@ -177,14 +242,14 @@
                     android:layout_width="wrap_content"
                     android:src="@drawable/ic_book_rounded_filled_24dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="32px"
+                    android:layout_marginEnd="16dp"
                     app:tint="?colorPrimary"
                     android:id="@+id/preference_icon4" />
 
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_toRightOf="@id/preference_icon4"
+                    android:layout_toEndOf="@id/preference_icon4"
                     android:textSize="18sp"
                     android:textColor="?colorOnSurface"
                     android:id="@+id/preference_name4"
@@ -195,21 +260,35 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_below="@id/preference_name4"
-                    android:layout_toRightOf="@id/preference_icon4"
+                    android:layout_toEndOf="@id/preference_icon4"
                     android:textSize="16sp"
                     android:textColor="?colorOnSurfaceVariant"
                     android:id="@+id/preference_description4"
                     android:text="@string/set_lib_desc" />
 
             </RelativeLayout>
+            </com.google.android.material.listitem.ListItemCardView>
+            </com.google.android.material.listitem.ListItemLayout>
 
+
+            <com.google.android.material.listitem.ListItemLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:id="@+id/i5">
+
+            <com.google.android.material.listitem.ListItemCardView
+                style="?attr/listItemCardViewSegmentedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true">
             <RelativeLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/shape_bottom"
-                android:paddingVertical="16dp"
-                android:paddingHorizontal="24dp"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
                 android:id="@+id/about">
 
                 <ImageView
@@ -217,14 +296,14 @@
                     android:layout_width="wrap_content"
                     android:src="@drawable/ic_info_rounded_filled_24dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="32px"
+                    android:layout_marginEnd="16dp"
                     app:tint="?colorPrimary"
                     android:id="@+id/preference_icon5" />
 
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_toRightOf="@id/preference_icon5"
+                    android:layout_toEndOf="@id/preference_icon5"
                     android:textSize="18sp"
                     android:textColor="?colorOnSurface"
                     android:id="@+id/preference_name5"
@@ -235,13 +314,15 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_below="@id/preference_name5"
-                    android:layout_toRightOf="@id/preference_icon5"
+                    android:layout_toEndOf="@id/preference_icon5"
                     android:textSize="16sp"
                     android:textColor="?colorOnSurfaceVariant"
                     android:id="@+id/preference_description5"
                     android:text="@string/set_about_desc" />
 
             </RelativeLayout>
+            </com.google.android.material.listitem.ListItemCardView>
+            </com.google.android.material.listitem.ListItemLayout>
 
         </LinearLayout>
 
